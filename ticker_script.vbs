@@ -69,6 +69,22 @@ For Each ws In Worksheets
                             
                             
                     End If
+
+                    ' Set the color of yearly_change
+                    ' Positive change set to green
+                    If (yearly_change > 0) Then
+                      ws.Cells(result_row, 10).Interior.ColorIndex = 4
+
+                        ' Negative change set to red
+                        ElseIf (yearly_change < 0) Then
+                          ws.Cells(result_row, 10).Interior.ColorIndex = 3
+
+                            ' 0 change set to grey
+                            Else
+                              ws.Cells(result_row, 10).Interior.ColorIndex = 15
+
+                    End If
+                              
         
                 ' Update values for next ticker cycle
                 result_row = result_row + 1
@@ -120,5 +136,6 @@ Next ws
 
 
 End Sub
+
 
 
